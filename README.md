@@ -1,2 +1,2 @@
 # PMC
-This repository will contain code for the Power Measure Controller (PMC)
+This repository will contain code for the Power Measure Controller (PMC), as of now it only contains the python version which is a simple proof of concept, soon enough I will write a version of the same program in C.
