@@ -116,12 +116,13 @@ void DaemonMode(char* filename, int minutes_to_run) {
         filenameCounter++;
 
         sprintf(filenameCounterBuffer, "%d", filenameCounter);
+        fprintf(output_file, "Time,Watts\n");
         strcpy(filenameBuffer, filename);
         strcat(filenameBuffer, filenameCounterBuffer);
 
         for (int i = 0; i < 60; i++) {
             gencmd(gencmd_result);
-            fprintf(output_file, "%i %f %f\n", time(NULL), GetVoltage(gencmd_result), GetAmpers(gencmd_result));
+            fprintf(output_file, "%i,%lf\n", time(NULL), GetVoltage(gencmd_result) * GetAmpers(gencmd_result));
             sleep(1);
         }
 
